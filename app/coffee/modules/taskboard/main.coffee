@@ -100,7 +100,7 @@ class TaskboardController extends mixOf(taiga.Controller, taiga.PageMixin, taiga
         promise.then null, @.onInitialDataError.bind(@)
 
     setZoom: (zoomLevel, zoom) ->
-        if @.zoomLevel == zoomLevel
+        if @.zoomLevel == Number(zoomLevel)
             return null
 
         @.isFirstLoad = !@.zoomLevel

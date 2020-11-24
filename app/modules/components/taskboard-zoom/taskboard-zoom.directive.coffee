@@ -19,7 +19,7 @@
 
 TaskboardZoomDirective = (storage) ->
     link = (scope, el, attrs, ctrl) ->
-        scope.zoomIndex = storage.get("taskboard_zoom") or 2
+        scope.zoomIndex = storage.get("taskboard_zoom", 2)
 
         scope.levels = 4
 
