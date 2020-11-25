@@ -3,14 +3,6 @@
     class!="<%= emptyTask() ? 'empty-tasks': '' %>"
 )
     .card-statistics-init
-        <% if (vm.item.get('modelName') == 'issues' ) { %>
-        span
-            <% if (vm.item.get('status')) { %>
-            span.card-status-tag(
-                style!="color: <%- vm.item.getIn(['status', 'color']) %>"
-            )  <%- vm.item.getIn(['status', 'name']) %>
-            <% } %>
-        <% } else { %>
         span
             <% if (vm.item.getIn(['model', 'total_points'])) { %>
             span.card-estimation(
@@ -24,7 +16,6 @@
             span.card-estimation
                 <%= translate('COMMON.CARD.NO_PTS') %>
             <% } %>
-        <% } %>
 
         <% if (vm.item.getIn(['model', 'due_date'])) { %>
         .card-due-date

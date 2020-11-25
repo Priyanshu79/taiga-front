@@ -1,6 +1,6 @@
 //Table basic shared vars
 $margin: 5px;
-$column-width: 300px;
+$column-width: 292px;
 $column-flex: 1;
 $column-shrink: 0;
 $column-margin: 0 $margin 0 0;
@@ -63,11 +63,38 @@ $fold-animation-duration: .1s;
     overflow: hidden;
     width: 100%;
     &.zoom-0 {
+        &.zoom-0 {
+            .taskboard-column,
+            .task-colum-name {
+                max-width: 232px;
+            }
+            .task-colum-name {
+                .title .name {
+                    max-width: 95px;
+                }
+            }
+            .card,
+            .card-inner.card-blocked {
+                min-height: 45px;
+            }
+        }
+        &.zoom-1 {
+            .card,
+            .card-inner.card-blocked {
+                min-height: 90px;
+            }
+        }
+        &.zoom-2,
+        &.zoom-3 {
+            .card,
+            .card-inner.card-blocked {
+                min-height: 120px;
+            }
+        }        
         .task-colum-name span {
             padding-right: 1rem;
         }
     }
-
     .task-colum-name {
         @include font-size(medium);
         align-items: center;
@@ -83,7 +110,6 @@ $fold-animation-duration: .1s;
         padding: $column-padding;
         text-transform: uppercase;
         transition: all $fold-animation-duration linear;
-        width: $column-width;
         &:last-child {
             margin-right: 0;
         }

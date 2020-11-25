@@ -24,11 +24,10 @@ TaskboardZoomDirective = (storage) ->
         scope.levels = 4
 
         zooms = [
-            ["ref"],
+            ["assigned_to", "ref"],
             ["subject"],
-            ["owner", "tags", "extra_info", "unfold"],
-            ["attachments", "empty_extra_info"],
-            ["related_tasks"]
+            ["tags", "extra_info", "unfold"],
+            ["related_tasks", "attachments"]
         ]
 
         getZoomView = (zoomIndex = 0) ->

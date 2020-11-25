@@ -774,7 +774,7 @@ module.directive("tgTaskboard", ["$rootScope", TaskboardDirective])
 
 TaskboardSquishColumnDirective = (rs) ->
     avatarWidth = 40
-    maxColumnWidth = 300
+    maxColumnWidth = 292
 
     link = ($scope, $el, $attrs) ->
         $scope.$on "sprint:zoom0", () =>
@@ -826,13 +826,14 @@ TaskboardSquishColumnDirective = (rs) ->
         setStatusColumnWidth = (statusId, width) =>
             column = $el.find(".squish-status-#{statusId}")
 
-            if width
-                column.css('max-width', width)
-            else
-                if $scope.ctrl.zoomLevel == '0'
-                    column.css("max-width", 148)
-                else
-                    column.css("max-width", maxColumnWidth)
+            # TODO in #701
+            # if width
+            #     column.css('max-width', width)
+            # else
+            #     if $scope.ctrl.zoomLevel == '0'
+            #         column.css("max-width", 148)
+            #     else
+            #         column.css("max-width", maxColumnWidth)
 
         refreshTaskboardTableWidth = () =>
             columnWidths = []

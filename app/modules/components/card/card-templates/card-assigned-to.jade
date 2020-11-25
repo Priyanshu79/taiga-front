@@ -12,6 +12,7 @@
     <% } %>
 
     <% if (vm.item.get('assigned_to')) { %>
+    <% if (vm.item.get('assigned_users_preview')) { %>
     <% _.forEach(vm.item.get('assigned_users_preview').toJS(), function(assignedUser, index) { %>
     .card-user-avatar
         <% if (index < 2 || vm.item.get('assigned_users').size == 3) { %>
@@ -31,6 +32,15 @@
         ) <%= vm.item.get('assigned_users').size - 2 %>+
         <% } %>
     <% }); %>
+    <% } else { %>
+    .card-user-avatar
+        img(
+            src!="<%- avatars[vm.item.getIn(['assigned_to', 'id'])].url %>"
+            title!="<%- avatars[vm.item.getIn(['assigned_to', 'id'])].fullName %>"
+            alt!="<%- avatars[vm.item.getIn(['assigned_to', 'id'])].fullName %>"
+            style!="background-color: <%- avatars[vm.item.getIn(['assigned_to', 'id'])].bg || '' %>"
+        )
+    <% } %>
     <% } %>
 
     <% if(vm.zoomLevel > 0) { %>
@@ -48,22 +58,13 @@
                 <% } else { %>
                 <%= svg({svgIcon: "icon-edit", svgTitle: translate('COMMON.CARD.EDIT') }) %>
                 <% } %>
-            <% if(vm.item.get('modelName') == 'issues') { %>
-
-            button.btn-form.e2e-edit.js-card-remove
-                <% if(vm.item.get('loading-remove-from-sprint')) { %>
-                <%= loading %>
-                <% } else { %>
-                <%= svg({svgIcon: "icon-close", svgTitle: translate('COMMON.CARD.DETACH_ISSUE_FROM_SPRINT') }) %>
-                <% } %>
-            <% } %>
 
             <% if(checkPermission(vm.getDeletePermisionKey())) { %>
             button.btn-form.card-delete.e2e-edit.js-card-delete
                 <% if(vm.item.get('loading-delete')) { %>
                 <%= loading %>
                 <% } else { %>
-                <%= svg({svgIcon: "icon-trash", svgTitle: vm.item.get('modelName') == 'issues' ? tranlate('COMMON.CARD.DELETE_ISSUE') : translate('COMMON.CARD.DELETE') }) %>
+                <%= svg({svgIcon: "icon-trash", svgTitle: translate('COMMON.CARD.DELETE') }) %>
                 <% } %>
             <% } %>
     <% } %>
