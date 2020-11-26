@@ -81,10 +81,6 @@ $fold-animation-duration: .1s;
         .card-inner {
             display: flex;
         }
-        .card,
-        .card-inner.card-blocked {
-            min-height: 90px;
-        }
     }
     &.zoom-2,
     &.zoom-3 {

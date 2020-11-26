@@ -26,7 +26,7 @@ TaskboardZoomDirective = (storage) ->
         zooms = [
             ["assigned_to", "ref"],
             ["subject"],
-            ["tags", "extra_info", "unfold"],
+            ["tags", "extra_info", "unfold", "card-data", "assigned_to_extended"],
             ["related_tasks", "attachments"]
         ]
 
