@@ -63,36 +63,34 @@ $fold-animation-duration: .1s;
     overflow: hidden;
     width: 100%;
     &.zoom-0 {
-        &.zoom-0 {
-            .taskboard-column,
-            .task-colum-name {
-                max-width: 232px;
-            }
-            .task-colum-name {
-                .title .name {
-                    max-width: 95px;
-                }
-            }
-            .card,
-            .card-inner.card-blocked {
-                min-height: 45px;
+        .taskboard-column,
+        .task-colum-name {
+            max-width: 162px;
+        }
+        .task-colum-name {
+            .title .name {
+                max-width: 95px;
             }
         }
-        &.zoom-1 {
-            .card,
-            .card-inner.card-blocked {
-                min-height: 90px;
-            }
+        .card,
+        .card-inner.card-blocked {
+            min-height: 45px;
         }
-        &.zoom-2,
-        &.zoom-3 {
-            .card,
-            .card-inner.card-blocked {
-                min-height: 120px;
-            }
-        }        
-        .task-colum-name span {
-            padding-right: 1rem;
+    }
+    &.zoom-1 {
+        .card-inner {
+            display: flex;
+        }
+        .card,
+        .card-inner.card-blocked {
+            min-height: 90px;
+        }
+    }
+    &.zoom-2,
+    &.zoom-3 {
+        .card,
+        .card-inner.card-blocked {
+            min-height: 120px;
         }
     }
     .task-colum-name {
@@ -127,6 +125,7 @@ $fold-animation-duration: .1s;
         }
         span {
             @include ellipsis(65%);
+            padding-right: 1rem;
         }
     }
 }
