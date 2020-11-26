@@ -78,8 +78,21 @@ $fold-animation-duration: .1s;
         }
     }
     &.zoom-1 {
+        tg-card-assigned-to {
+            margin-left: auto;
+        }
         .card-inner {
             display: flex;
+        }
+        .card-title {
+            a {
+                display: flex;
+            }
+        }
+        .card-assigned-to,
+        .card-title {
+            position: static;
+            margin-bottom: 0;
         }
     }
     &.zoom-2,

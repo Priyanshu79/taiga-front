@@ -735,7 +735,6 @@ CardAssignedToDirective = ($template, $translate, avatarService, projectService)
 
     render = (vm) =>
         avatars = {}
-        console.log vm.item.toJS()
         (vm.item.get('assigned_users') || [vm.item.get('assigned_to')]).forEach (user) =>
             if user
                 avatars[user.get('id')] = avatarService.getAvatar(user, 'avatar')
