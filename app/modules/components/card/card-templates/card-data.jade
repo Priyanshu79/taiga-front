@@ -3,6 +3,7 @@
     class!="<%= emptyTask() ? 'empty-tasks': '' %>"
 )
     .card-statistics-init
+        <% if (vm.type == 'us') { %>
         span
             <% if (vm.item.getIn(['model', 'total_points'])) { %>
             span.card-estimation(
@@ -16,6 +17,7 @@
             span.card-estimation
                 <%= translate('COMMON.CARD.NO_PTS') %>
             <% } %>
+        <% } %>
 
         <% if (vm.item.getIn(['model', 'due_date'])) { %>
         .card-due-date

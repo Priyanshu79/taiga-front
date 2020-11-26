@@ -104,13 +104,6 @@ $fold-animation-duration: .1s;
             margin-bottom: 0;
         }
     }
-    &.zoom-2,
-    &.zoom-3 {
-        .card,
-        .card-inner.card-blocked {
-            min-height: 120px;
-        }
-    }
     .task-colum-name {
         @include font-size(medium);
         align-items: center;
