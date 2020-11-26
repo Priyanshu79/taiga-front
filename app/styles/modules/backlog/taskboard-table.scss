@@ -89,6 +89,15 @@ $fold-animation-duration: .1s;
                 display: flex;
             }
         }
+        .card-actions {
+            flex-direction: row-reverse;
+            justify-content: flex-start;
+        }
+        .card-assigned-to-action {
+            span {
+                display: none;
+            }
+        }
         .card-assigned-to,
         .card-title {
             position: static;
