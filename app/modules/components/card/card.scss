@@ -36,8 +36,45 @@ $card-section-margin-bottom: .5rem;
     border-radius: .25rem;
     padding: 1rem 0 .75rem 0;
 
+    .wrapper-assigned-to-data {
+        display: contents;
+    }
     .belong-to-epic-pill-wrapper {
         padding: 0;
+    }
+    &.type-task.zoom-2,
+    &.type-task.zoom-3 {
+        .wrapper-assigned-to-data {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            margin-top: .5rem;
+        }
+    }
+    &.type-task {
+        .wrapper-assigned-to-data {
+            .icon {
+                @include svg-size(.75rem);
+            }
+        }
+        .card-iocaine {
+            margin-left: .5rem;
+            svg {
+                fill: #B400D1;
+            }
+        }
+    }
+    &.type-us {
+        .card-data {
+            justify-content: space-between;
+            margin-bottom: $card-section-margin-bottom;
+        }
+        .card-assigned-to {
+            margin-bottom: $card-section-margin-bottom;
+        }
+        .card-statistics {
+            margin-left: auto;
+        }
     }
     &.with-fold-action {
         padding: 1rem 0 0 0;
@@ -210,7 +247,6 @@ $card-section-margin-bottom: .5rem;
 
 .card-assigned-to {
     display: flex;
-    margin-bottom: $card-section-margin-bottom;
     padding: $wrap-padding;
     position: relative;
 
@@ -317,8 +353,6 @@ $card-section-margin-bottom: .5rem;
     color: $gray-light;
     display: flex;
     font-size: 14px;
-    justify-content: space-between;
-    margin-bottom: $card-section-margin-bottom;
     padding: $wrap-padding;
     .card-status-tag {
         font-size: .75rem;
@@ -360,7 +394,6 @@ $card-section-margin-bottom: .5rem;
     align-items: center;
     color: $grey-30;
     display: flex;
-    margin-left: auto;
     margin-top: 0; /* override taiga-seed css */
     .statistic {
         align-content: center;

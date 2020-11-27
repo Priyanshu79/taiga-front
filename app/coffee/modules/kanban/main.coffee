@@ -841,6 +841,12 @@ CardDataDirective = ($template, $translate, avatarService, projectService, dueDa
                     isClosed: vm.item.getIn(['model', 'is_closed']),
                     objType: vm.type
                 })
+            totalAttachments: () =>
+                if vm.type == 'task'
+                    return vm.item.getIn(['model', 'attachments']).size
+                else
+                    return vm.item.getIn(['model', 'total_attachments'])
+
             translate: (key, params) =>
                 return $translate.instant(key, params)
             svg: (svgData) =>
@@ -860,6 +866,7 @@ CardDataDirective = ($template, $translate, avatarService, projectService, dueDa
             initializeZoom = false
 
             onChange = () =>
+                console.log $scope.vm
                 html = render($scope.vm)
                 $el.off()
 

@@ -24,18 +24,23 @@
             <%= svg({svgIcon: "icon-clock", svgTitle: translate('COMMON.CARD.DUE_DATE', { date: dueDateTitle() }), svgFill: dueDateColor() }) %>
         <% } %>
 
+        <% if (vm.item.getIn(['model', 'is_iocaine'])) { %>
+        .card-iocaine
+            <%= svg({svgIcon: "icon-iocaine", svgTitle: translate('TASK.FIELDS.IS_IOCAINE')}) %>
+        <% } %>
+
         <% if (vm.item.getIn(['model', 'is_blocked'])) { %>
         span.card-lock(ng-if="vm.item.getIn(['model', 'is_blocked'])")
             <%= svg({svgIcon: "icon-lock" }) %>
         <% } %>
 
     .card-statistics
-        <% if (vm.item.getIn(['model', 'total_attachments'])) { %>
+        <% if (totalAttachments()) { %>
         .statistic.card-attachments(
             title!="<%= translate('ATTACHMENT.SECTION_NAME') %>"
         )
             <%= svg({svgIcon: "icon-paperclip" }) %>
-            span <%= vm.item.getIn(['model', 'total_attachments']) %>
+            span <%= totalAttachments() %>
         <% } %>
         <% if (vm.item.getIn(['model', 'watchers']).size) { %>
         .statistic.card-watchers(
