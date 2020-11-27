@@ -45,6 +45,16 @@ $card-section-margin-bottom: .5rem;
     &.type-task.zoom-2,
     &.type-task.zoom-3 {
         .wrapper-assigned-to-data {
+            position: relative;
+        }
+        .card-assigned-to {
+            position: static;
+            .card-actions {
+                left: 1px;
+                width: calc(100% - 2px);
+            }
+        }
+        .wrapper-assigned-to-data {
             align-items: center;
             display: flex;
             justify-content: space-between;
@@ -52,6 +62,39 @@ $card-section-margin-bottom: .5rem;
         }
     }
     &.type-task {
+        &.zoom-0 {
+            .card,
+            .card-inner.card-blocked {
+                min-height: 45px;
+            }
+        }
+        &.zoom-1 {
+            display: flex;
+            tg-card-assigned-to {
+                margin-left: auto;
+            }
+            .card-title {
+                a {
+                    display: flex;
+                }
+            }
+            .card-actions {
+                flex-direction: row-reverse;
+                height: 100%;
+                justify-content: flex-start;
+                top: 0;
+            }
+            .card-assigned-to-action {
+                span {
+                    display: none;
+                }
+            }
+            .card-assigned-to,
+            .card-title {
+                position: static;
+                margin-bottom: 0;
+            }
+        }
         .wrapper-assigned-to-data {
             .icon {
                 @include svg-size(.75rem);
@@ -303,7 +346,6 @@ $card-section-margin-bottom: .5rem;
 
 }
 
-
 .card-detail-actions {
     display: flex;
 }
@@ -519,8 +561,4 @@ $card-section-margin-bottom: .5rem;
     height: 90px;
     justify-content: center;
     overflow: hidden;
-    .loading-spinner {
-        min-height: 3rem;
-        min-width: 3rem;
-    }
 }
